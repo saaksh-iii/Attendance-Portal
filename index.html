@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Attendance Marker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📋 Student Attendance Marker</h1>
+            <p>Track and manage student attendance efficiently</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Add Student Section -->
+            <section class="add-student-section">
+                <h2>Add New Student</h2>
+                <div class="input-group">
+                    <input 
+                        type="text" 
+                        id="studentName" 
+                        placeholder="Enter full name" 
+                        class="input-field"
+                    >
+                    <input 
+                        type="text" 
+                        id="rollNumber" 
+                        placeholder="Enter roll number" 
+                        class="input-field"
+                    >
+                    <button onclick="addStudent()" class="btn btn-primary">Add Student</button>
+                </div>
+            </section>
+
+            <!-- Class Date Section -->
+            <section class="date-section">
+                <h2>Class Date</h2>
+                <div class="input-group">
+                    <input 
+                        type="date" 
+                        id="classDate" 
+                        class="input-field"
+                    >
+                    <button onclick="changeDate()" class="btn btn-secondary">Change Date</button>
+                </div>
+                <p id="dateDisplay" class="date-display">Today: <span id="currentDate"></span></p>
+            </section>
+
+            <!-- Attendance Marking Section -->
+            <section class="attendance-section">
+                <h2>Mark Attendance</h2>
+                <div class="controls">
+                    <button onclick="markAllPresent()" class="btn btn-success">Mark All Present</button>
+                    <button onclick="markAllAbsent()" class="btn btn-danger">Mark All Absent</button>
+                    <button onclick="clearAttendance()" class="btn btn-warning">Clear</button>
+                </div>
+
+                <div id="attendanceList" class="attendance-list">
+                    <p class="empty-message">No students added yet. Add a student above to get started.</p>
+                </div>
+            </section>
+
+            <!-- Statistics Section -->
+            <section class="stats-section">
+                <h2>Attendance Statistics</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value" id="totalStudents">0</div>
+                        <div class="stat-label">Total Students</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="presentCount">0</div>
+                        <div class="stat-label">Present</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="absentCount">0</div>
+                        <div class="stat-label">Absent</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="attendancePercentage">0%</div>
+                        <div class="stat-label">Attendance %</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Data Management Section -->
+            <section class="data-section">
+                <h2>Data Management</h2>
+                <div class="button-group">
+                    <button onclick="exportToCSV()" class="btn btn-info">📊 Export to CSV</button>
+                    <button onclick="resetAll()" class="btn btn-danger">🗑️ Reset All</button>
+                </div>
+            </section>
+
+            <!-- Attendance History Section -->
+            <section class="history-section">
+                <h2>Attendance History</h2>
+                <div id="historyList" class="history-list">
+                    <p class="empty-message">No attendance records yet.</p>
+                </div>
+            </section>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Student Attendance Marker. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
